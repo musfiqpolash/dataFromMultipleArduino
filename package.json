@@ -1,0 +1,22 @@
+{
+  "name": "datafrommultiplearduino",
+  "version": "1.0.0",
+  "description": "nodejs app to detect multiple arduino connected to the pc and fetch data",
+  "main": "dataFromMultipleArduino.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "socket.io",
+    "serialport"
+  ],
+  "author": "MM.Rahman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "serialport": "^11.0.1",
+    "socket.io": "^4.7.2"
+  }
+}
