@@ -3,7 +3,7 @@ This is a Nodejs application to detect and connect multiple arduino connected to
 
 # Installation
 Clone this application from git hub [dataFromMultipleArduino](http://github.com/musfiqpolash/dataFromMultipleArduino)  
-> `git clone http://github.com/musfiqpolash/dataFromMultipleArduino`  
+> `git clone http://github.com/musfiqpolash/dataFromMultipleArduino && cd dataFromMultipleArduino` 
 
 Then run 
 > `npm ce`  
