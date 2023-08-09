@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <button onclick="fetchSensorValue('all')">Refresh all</button> <br>
+    </div>
+    <div id="sensor_data">
+
+    </div>
+    <script>
+        let sensor_array = [];
+        let socket = io();
+        fetchSensorValue("all");
+        function fetchSensorValue(device) {
+            socket.emit('fetchData', { "command": device });
+        }
+
+        socket.on('arduino_data', function (data) {
+            // console.log(data);
+            sensor_array[data.index] = data;
+            updateHtml();
+        });
+
+        function updateHtml() {
+            let sensor_data = document.getElementById("sensor_data");
+            sensor_data.innerHTML = "";
+            sensor_array.forEach(element => {
+                console.log(element);
+
+                sensor_data.innerHTML +=
+                    `<div>
+                        <h3>Sensor Value for device: ${element.data.device}</h3>
+                        <button onclick="fetchSensorValue('${element.index}')">Refresh</button> <br>
+                        <span>Temperature: </span><span>${element.data.temperature_c} C</span> | <span>${element.data.temperature_f} F</span> <br>
+                        <span>Humidity: </span><span>${element.data.humidity} %</span> <br>
+                        <span>Light Condition </span><span>${element.data.photo_resistor}</span>
+                    </div>
+                    `;
+            });
+
+        }
+    </script>
+</body>
+
+</html>
