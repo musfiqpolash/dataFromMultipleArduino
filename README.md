@@ -6,7 +6,7 @@ Clone this application from git hub [dataFromMultipleArduino](http://github.com/
 > `git clone http://github.com/musfiqpolash/dataFromMultipleArduino && cd dataFromMultipleArduino` 
 
 Then run 
-> `npm ce`  
+> `npm ci`  
 
 which requires [Nodejs](https://nodejs.org/de/download) to be isntalled in the machine
 
